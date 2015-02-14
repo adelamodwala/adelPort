@@ -1,0 +1,8 @@
+- $cat = get_the_category()[0]->slug
+.post(class="#{$cat}")
+	- if($cat == 'projects')
+		= render_partial('posts/project_post')
+	- else
+		%header
+			%h3= link_to(get_the_title(), get_permalink())
+		.content= get_the_filtered_content()

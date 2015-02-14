@@ -1,0 +1,23 @@
+- $post = get_post(get_the_ID())
+- $home = get_page_by_title('Home')->ID
+.post.about-page
+
+	// .grid-section.grid-group.tile-section
+	// 	- $gallery = get_field('gallery')
+	// 	- foreach($gallery as $image)
+	// 		.grid-col.col-1-4.tile.project-tile(style="background-image: url('#{$image['url']}')")
+
+	.page-section.info-section
+		.about-info
+			.section-wrapper
+				= wpautop($post->post_content)
+
+			.page-seciton.contact
+				- $image = wp_get_attachment_image_src( get_post_thumbnail_id( $home ), 'single-post-thumbnail' )[0]
+				.contact-form
+					.content.section-wrapper
+						.col.col-1-2.form
+							%h1 ContAct Me
+							= do_shortcode('[contact-form-7 id="108" title="Contact Form"]')
+						.col.col-1-2.image
+							.center-bg(style="background-image: url('#{$image}');")

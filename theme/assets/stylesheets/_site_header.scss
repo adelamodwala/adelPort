@@ -1,0 +1,101 @@
+header.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 256px;
+  height: 100%;
+  z-index: 3;
+
+  .logo {
+    width: 100%;
+    padding-top: 100%;
+    background: url('../images/logo.png') center / contain no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  a {
+    // font-family: OswaldLight;
+    font-family: HelveticaLtCn;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-rendering: geometricPrecision;
+  }
+
+  .menu {
+    padding-left: 25px;
+    li {
+      margin-bottom: 18px;
+      &:last-child {margin-bottom: 0;}
+    }
+  }
+
+  #menu-projects-menu {
+    margin: 35px 0 50px;
+
+    .menu-item-object-category {
+      margin-bottom: 0;
+      > a {display: none;}
+    }
+  }
+
+  .toggle-menu {display: none;}
+}
+
+@media #{media-width-res(800)} {
+  header.site-header {
+    width: 100%;
+    height: auto;
+    background: white;
+    position: absolute;
+
+    a {font-size: 12px;}
+
+    .header-wrapper {
+      width: calc(100% - 70px);
+      margin: 0 auto;
+    }
+
+    #menu-projects-menu {margin: 10px 0 0;}
+
+    .menu {
+      display: none;
+
+      &.expand {
+        display: block;
+        margin: 18px 0 35px;
+        padding: 0;
+        text-align: center;
+      }
+
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+      padding: 0;
+      background-size: contain;
+      margin: 3px 35px;
+      // float: left;
+    }
+    #myCanvas {margin-top: 3px;}
+
+    .toggle-menu {
+      position: absolute;
+      top: 29.5px;
+      // @include transform(translateY(-50%));
+      right: 35px;
+      display: block;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  .page-wrapper {
+    margin: 81px 0 70px !important;
+  }
+}

@@ -1,0 +1,13 @@
+// - $bg_col = in_array($k, [1, 2, 5, 7])
+- $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' )[0]
+- $hover = get_field('hover_logo') ? get_field('hover_logo')['url'] : $image
+.grid-col.col-1-4.project-tile.tile
+	.pre-tile-content.filled-link
+		.tile-image.col-1-4(style="background-image: url('#{$image}');")
+		.project-title= get_the_title()
+		.highlights= get_field('highlights')
+	.project-tile-content
+		.tile-image.col-1-4(style="background-image: url('#{$hover}');")
+		.project-title= get_the_title()
+		.highlights.cta VIEW CASE STUDY
+	%a.filled-link(href="#{get_permalink()}")

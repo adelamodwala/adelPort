@@ -1,0 +1,31 @@
+.post.photography.projects
+	.project-container
+		.project-slider.wrapper
+			.liquid-slider#project-slider
+				- $gallery = get_field('gallery')
+				- foreach($gallery as $image)
+					.slide(style="background-image: url('#{$image['url']}');")
+
+		.clear
+
+:javascript
+	(function($) {
+		$(document).ready(function() {
+
+			var sliderArgs = {
+				autoHeight: false,
+				dynamicArrows: true,
+				autoSlide: true,
+				autoSlideInterval: 5000,
+				pauseOnHover: false,
+				slideEaseDuration: 600,
+				slideEaseFunction: "easeInOutSine",
+				swipe: true,
+				hoverArrows: false,
+				continuous: false
+			}
+
+			$("#project-slider").liquidSlider(sliderArgs);
+
+		});
+	})(jQuery);

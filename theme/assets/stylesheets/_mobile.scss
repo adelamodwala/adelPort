@@ -1,0 +1,9 @@
+//Mobile styles
+
+.mobile {
+	* {-webkit-overflow-scrolling: touch;}
+	.home-page .tile .project-tile-content, .about-page .tile .project-tile-content {
+		// top: 0;
+		// opacity: 0;
+	}
+}

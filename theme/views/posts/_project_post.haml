@@ -1,0 +1,51 @@
+.project-container
+	.left.project-info
+		.section-wrapper
+			.intro
+				%h4= get_the_title()
+				%h5= get_field('role')
+
+			.details
+				= wpautop(get_the_content())
+				.project-link
+					%a(href="#{get_field('project_link')}" target="_blank" title="Visit #{get_the_title()}")
+						= get_field('project_link')
+				.sprite.go-further
+
+	.project-slider.wrapper
+		.liquid-slider#project-slider
+			- $gallery = get_field('gallery')
+			// %pre= print_r($gallery)
+			- foreach($gallery as $image)
+				.slide(style="background-image: url('#{$image['url']}');")
+
+	.clear
+
+:javascript
+	(function($) {
+		$(document).ready(function() {
+
+			var sliderArgs = {
+				autoHeight: false,
+				dynamicArrows: $('.project-slider .slide').length > 1,
+				autoSlide: true,
+				autoSlideInterval: 5000,
+				pauseOnHover: false,
+				slideEaseDuration: 600,
+				slideEaseFunction: "easeInOutSine",
+				swipe: true,
+				hoverArrows: false,
+				continuous: false
+			}
+
+			$("#project-slider").liquidSlider(sliderArgs);
+
+			$(window).resize();
+
+			$(".go-further").click(function() {
+				var newTop = $("#project-slider").offset().top;
+				TweenLite.to(window, 0.15, {scrollTo: newTop, ease: Sine.easeIn});
+			});
+
+		});
+	})(jQuery);

@@ -1,0 +1,21 @@
+- $about = get_page_by_title("About")->ID
+.footer-container
+	.section-wrapper
+		.left
+			.copyright	
+				= '©'.get_field('copyright', $about)
+		.right.social-icons
+			- if(get_field('github_link', $about))
+				.col.sprite.github.social-icon
+					%a.filled-link(href="#{get_field('github_link', $about)}" target="_blank")
+			- if(get_field('instagram_link', $about))
+				.col.sprite.instagram.social-icon
+					%a.filled-link(href="#{get_field('instagram_link', $about)}" target="_blank")
+			- if(get_field('linkedin_link', $about))
+				.col.sprite.linkedin.social-icon
+					%a.filled-link(href="#{get_field('linkedin_link', $about)}" target="_blank")
+			- if(get_field('twitter_link', $about))
+				.col.sprite.twitter.social-icon
+					%a.filled-link(href="#{get_field('twitter_link', $about)}" target="_blank")
+
+		.clear

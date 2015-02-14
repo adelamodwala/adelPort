@@ -1,0 +1,25 @@
+.header-wrapper
+	%canvas#myCanvas
+	.logo
+		%a.filled-link(href="#{home_url()}")
+
+	- wp_nav_menu(array('menu' => 'projects-menu'))
+	- wp_nav_menu(array('menu' => 'site-menu'))
+
+	.right
+		.toggle-menu
+			.sprite.menu-switch
+	.clear
+
+:javascript
+
+	(function($) {
+		
+		$(document).ready(function() {
+
+			$("header .toggle-menu").click(function() {
+				$('.menu').toggleClass('expand');
+			});
+
+		});
+	})(jQuery);

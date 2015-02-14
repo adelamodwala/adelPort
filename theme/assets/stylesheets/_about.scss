@@ -1,0 +1,99 @@
+//About Styles
+
+.about-page {
+	position: relative;
+	.tile-section {position: absolute; width: 100%;}
+	.info-section {
+		background: #4A1942;
+		.about-info, .insta-feed {
+			min-height: calc(100vh - 70px);
+			// padding-top: 25%;
+			vertical-align: top;
+
+			img {max-width: 100%;}
+		}
+
+		.about-info {
+			
+			
+			color: white;
+			h6 {
+				font-size: 27px; 
+				margin-bottom: 20px;
+				line-height: 30px;
+				font-family: Raleway;
+			}
+
+			strong {margin-top: 40px; display: block;}
+			p, ul {
+				font-size: 16px; 
+				line-height: 24px;
+				margin-bottom: 15px;
+				&:last-child {margin-bottom: 0;}
+			}
+
+			ul {list-style: disc; padding-left: 20px;}
+		}
+
+		.insta-feed {
+			background: white;
+			.col-title {
+				font-size: 14px;
+				font-family: Oswald;
+				color: #3eb595;
+				text-transform: uppercase;
+				margin-bottom: 20px;
+			}
+
+			a {
+				margin-bottom: 20px;
+				display: block;
+				&:last-child{margin-bottom: 0;}
+				img {width: 100%;}
+			}
+			
+		}
+
+	}
+
+	.contact-form {
+		.section-wrapper {padding-top: 80px;}
+	}
+
+}
+
+@media #{media-width-res(1000)} {
+	.about-page {
+		.info-section {
+
+			.about-info, .insta-feed {
+				// min-height: 0;
+				// width: 100%;
+				// display: block;
+			}
+
+			.insta-feed {
+				padding-top: 0;
+
+				a {
+					width: calc(50% - 10px);
+					margin-right: 20px;
+					margin-bottom: 0;
+					display: inline-block;
+					&:last-child {margin-right: 0;}
+				}
+			}
+		}
+	}
+}
+
+@media #{media-width-res(500)} {
+	.about-page .info-section .insta-feed a {
+		display: block;
+		width: 100%;
+		margin: 0 0 20px 0;
+		&:last-child {margin-bottom: 0;}
+
+		img {width: 100%;}
+	}
+}
