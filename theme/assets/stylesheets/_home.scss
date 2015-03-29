@@ -33,7 +33,7 @@
 			height: auto;
 			top: 50%;
 			@include transform(translateY(-50%));
-			@include transition(opacity .28s cubic-bezier(0.470, 0.000, 0.745, 0.715));
+			@include transition(opacity .28s ease-in);
 		}
 
 		.pre-tile-content {opacity: 1;}

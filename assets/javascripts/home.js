@@ -90,6 +90,20 @@ function hideLoader(showContent) {
 
 function showLoader() {
 	$(".loader").removeClass('hidden');
+}
+
+function setGAEvents() {
+	$('.header-wrapper a').click(function() {
+		ga('send', 'event', 'button', 'click', 'main-nav: ' + $(this).attr('href'));
+	});
+
+	$('a').click(function() {
+		ga('send', 'event', 'button', 'click', 'anchor-tag: ' + $(this).attr('href'));
+	});
+
+	$("form input[type='submit']").click(function() {
+		ga('send', 'event', 'form', 'submit', $(this).closest('form').attr('name'));
+	});
 
 }
 
@@ -98,6 +112,9 @@ $(document).ready(function() {
 
 	globalResizeFunction();
 	$(window).resize(globalResizeFunction);
+	setGAEvents();
+
+	hljs.initHighlightingOnLoad();
 
 
 	$('html').waitForImages({

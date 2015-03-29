@@ -10,17 +10,22 @@ body {
   text-rendering: geometricPrecision;
 }
 
-h1 {
+h1, h2 {
   font-size: 46px;
   font-family: MushroomHill;
   margin-bottom: 25px;
   color: white;
 }
 
+h2 {
+  font-family: HelveticaCn;
+}
+
 h4, h5 {
 	font-family: HelveticaCn;
 	font-size: 30px;
 	line-height: 34px;
+
 }
 h5 {font-family: HelveticaThCn;}
 
@@ -44,14 +49,12 @@ h5 {font-family: HelveticaThCn;}
     width: 60px; 
     @include transform(scale(0.5));
   }
-	&.instagram {
-    // background-position: 0 0;
-    background-position: -80px -120px;
-    
-  }
+	&.instagram {background-position: -80px -120px;}
 	&.linkedin {background-position: -80px -40px;}
 	&.twitter {background-position: 0 -120px;}
   &.github {background-position: 0 -200px;}
+  &.email {background-position: -80px -200px;}
+
 	&.menu-switch {
 		height: 22px;
 		width: 30px;
@@ -64,14 +67,16 @@ h5 {font-family: HelveticaThCn;}
   }
 }
 
-.arrows {
-  div[class^="ls-nav-"] {
+.owl-buttons {
+  div[class^="owl-"] {
+    position: absolute;
   	z-index: 2;
   	height: 41px;
   	width: 41px;
   	opacity: 0.5 !important;
     bottom: 30px;
     margin: 0;
+    background: url('../images/sprites.png') 0 -40px no-repeat !important;
 
   	&:hover {opacity: 0.8 !important;}
   	a {
@@ -79,11 +84,11 @@ h5 {font-family: HelveticaThCn;}
   		height: 100%;
   		width: 100%;
   	}
-  	&.ls-nav-left-arrow {
+  	&.owl-prev {
   		left: calc(50% - 50px);
-  		a {@include transform(scaleX(-1));}
+  		@include transform(scaleX(-1));
   	}
-  	&.ls-nav-right-arrow {
+  	&.owl-next {
   		right: calc(50% - 50px);
   	}	
   }
@@ -141,10 +146,33 @@ input[type="submit"] {
   .col {vertical-align: top;}
   .form {padding-right: 25px;}
   .image {padding-left: 25px;}
+  .number a {color: white; text-decoration: none;}
+
+  @media #{media-width-res(1270)} {
+    .number {width: 100%; margin-top: 15px;}
+  }
 
   @media #{media-width-res(600)} {
     .form, .image {width: 100%; padding: 0;}
     .image {margin-top: 15px;}
+    .number {width: auto; margin-top: 0px;}
   }
 
+}
+
+.hljs {
+  line-height: 1.2;
+  font-size: 15px;
+  font-family: monospace;
+  width: 100%;
+}
+
+.all-inline {
+  pre, p {display: inline}
+  .hljs {
+    width: auto;
+    display: inline;
+    padding: 2px;
+    font-size: 14px;
+  }
 }

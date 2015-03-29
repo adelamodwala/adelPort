@@ -1,8 +1,10 @@
-- $cat = get_the_category()[0]->slug
-.post(class="#{$cat}")
-	- if($cat == 'projects')
+- $cat = is_single() ? get_the_category()[0]->slug : slug(get_the_ID())
+- if($cat == 'projects')
+	.post(class="#{$cat}")
 		= render_partial('posts/project_post')
-	- else
-		%header
-			%h3= link_to(get_the_title(), get_permalink())
-		.content= get_the_filtered_content()
+- else
+	.post.base-post(class="#{$cat}")
+		.page-section.info-section
+			.vh-wrapper
+				.section-wrapper
+					.content= wpautop(get_the_content())

@@ -1,8 +1,13 @@
 - header("HTTP/1.1 404 File not found")
-%h2 Page not found - error 404
-%h4
-  %strong 
-    Sorry. The page 
-    = $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]
-    was moved or doesn't exist
-    
+.post.base-post.error-404
+	.page-section.info-section
+		.vh-wrapper
+			.section-wrapper
+				.content
+					%h2 Page not found - error 404
+					%h4
+						%strong 
+							Sorry. The page 
+							= $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]
+							was moved or doesn't exist
+							

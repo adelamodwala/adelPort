@@ -5,6 +5,8 @@
 			.copyright	
 				= '©'.get_field('copyright', $about)
 		.right.social-icons
+			.col.sprite.email.social-icon
+				%a.filled-link(href="mailto:adel.amodwala@gmail.com")			
 			- if(get_field('github_link', $about))
 				.col.sprite.github.social-icon
 					%a.filled-link(href="#{get_field('github_link', $about)}" target="_blank")

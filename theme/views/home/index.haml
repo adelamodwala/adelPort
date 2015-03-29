@@ -24,7 +24,11 @@
 		.contact-form
 			.content.section-wrapper
 				.col.col-1-2.form
-					%h1 ContAct Me
+					%h1
+						.left ContAct Me
+						.right.number
+							%a(href="tel:416.894.6338") 416.894.6338
+						.clear
 					= do_shortcode('[contact-form-7 id="108" title="Contact Form"]')
 				.col.col-1-2.image
 					.center-bg(style="background-image: url('#{$image}');")

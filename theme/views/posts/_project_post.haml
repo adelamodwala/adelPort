@@ -1,5 +1,5 @@
 .project-container
-	.left.project-info
+	.project-info
 		.section-wrapper
 			.intro
 				%h4= get_the_title()
@@ -13,7 +13,7 @@
 				.sprite.go-further
 
 	.project-slider.wrapper
-		.liquid-slider#project-slider
+		.owl-carousel#project-slider
 			- $gallery = get_field('gallery')
 			// %pre= print_r($gallery)
 			- foreach($gallery as $image)
@@ -24,21 +24,14 @@
 :javascript
 	(function($) {
 		$(document).ready(function() {
-
 			var sliderArgs = {
-				autoHeight: false,
-				dynamicArrows: $('.project-slider .slide').length > 1,
-				autoSlide: true,
-				autoSlideInterval: 5000,
-				pauseOnHover: false,
-				slideEaseDuration: 600,
-				slideEaseFunction: "easeInOutSine",
-				swipe: true,
-				hoverArrows: false,
-				continuous: false
+				singleItem: true,
+				pagination: false,
+				navigation: true,
+				navigationText: ["", ""]
 			}
-
-			$("#project-slider").liquidSlider(sliderArgs);
+			// $("#project-slider").liquidSlider(sliderArgs);
+			$("#project-slider").owlCarousel(sliderArgs);
 
 			$(window).resize();
 
